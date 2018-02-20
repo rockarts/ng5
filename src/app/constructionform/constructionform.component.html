@@ -1,0 +1,98 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>PRE‐CONSTRUCTION COMMUNICATION FORM</p>
+  </div>
+
+  <div class="col">
+    <p>1.0 Contact Information</p>
+  </div>
+</div>
+
+<div class="container color-light">
+    <form>
+  <table>
+    <th>
+      <tr>
+        <td>Name</td>
+        <td>Phone</td>
+        <td>Email</td>
+        <td>Primary Site Contact</td>
+      </tr>
+
+      <tr>
+        <td>
+            <input type="text" class="txt" name="item" placeholder="Property Owner" [(ngModel)]="propertyOwner">
+        </td>
+        <td>
+            <input type="text" class="txt" name="item" placeholder="Property Owner Phone" [(ngModel)]="propertyOwnerPhone">
+        </td>
+        <td>
+            <input type="text" class="txt" name="item" placeholder="Property Owner Email" [(ngModel)]="propertyOwnerEmail">
+        </td>
+        <td><input type="radio" name="siteContact" value="Property Owner" id="primarySiteContact"></td>
+      </tr>
+
+      <tr>
+          <td>
+              <input type="text" class="txt" name="item" placeholder="Consultant" [(ngModel)]="consultantName">
+          </td>
+          <td>
+              <input type="text" class="txt" name="item" placeholder="Consultant Phone" [(ngModel)]="consultantPhone">
+          </td>
+          <td>
+              <input type="text" class="txt" name="item" placeholder="Consultant Email" [(ngModel)]="consultantEmail">
+          </td>
+          <td><input type="radio" name="siteContact" value="Consultant" id="primarySiteContact"></td>
+        </tr>
+  
+        <tr>
+            <td>
+                <input type="text" class="txt" name="item" placeholder="Underground Contractor" [(ngModel)]="undergroundContractorName">
+            </td>
+            <td>
+                <input type="text" class="txt" name="item" placeholder="Underground Contractor Phone" [(ngModel)]="undergroundContractorPhone">
+            </td>
+            <td>
+                <input type="text" class="txt" name="item" placeholder="Underground Contractor Email" [(ngModel)]="undergroundContractorEmail">
+            </td>
+            <td><input type="radio" name="siteContact" value="Underground Contractor" id="primarySiteContact" ></td>
+          </tr>
+    
+    </th>
+  </table>
+  <div class="col">
+      <p>2.0 Service Site Location</p>
+    </div>
+  <div class="col">
+      <label for="address">Address: </label>
+      <input type="text" class="txt" id="address" name="item" placeholder="Address" [(ngModel)]="address">
+  
+      <label for="businessName">Building/Business Name: </label>
+      <input type="text" class="txt" id="businessName" name="item" placeholder="Building/Business Name" [(ngModel)]="businessName">
+  </div>
+  <div class="col">
+      <label for="lot">Lot: </label>
+      <input type="text" class="txt" id="lot" name="item" placeholder="Lot" [(ngModel)]="lot">
+
+      <label for="block">Block: </label>
+      <input type="text" class="txt" id="block" name="item" placeholder="Block" [(ngModel)]="block">
+
+      <label for="plan">Plan: </label>
+      <input type="text" class="txt" id="plan" name="item" placeholder="Plan" [(ngModel)]="plan">
+  </div>
+    
+  <div class="col">
+      <p>2.0 Service Site Location</p>
+  </div>    
+  
+  <div>
+    <input type="submit" class="btn" value="Submit" (click)="addItem()">   
+  </div>
+
+  <div class="col">
+      <p class="life-container" *ngFor="let customer of customers; let i = index" (click)="removeItem(i)">
+        {{ customer.primarySiteContact }}
+      </p>
+    </div>
+</form>
+</div>

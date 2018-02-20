@@ -1,0 +1,7 @@
+npm install -g angular-cli-ghpages
+
+Add to git. 
+
+ng build --prod --base-href="https://rockarts.github.io/ng5/"
+
+angular-cli-ghpages
