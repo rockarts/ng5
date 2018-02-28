@@ -1,14 +1,30 @@
 <!--todo component view-->
 
+
 <div class="container">
 
   <h2>Todos list</h2>
 
   <hr>
 
-  <div class="row">
+  <div flex fxLayout="row">
 
-      <div class="col-md-6">
+    <div>
+        <label for="input-description">Description</label>
+        <input [(ngModel)]="description" (keyup.enter)="addTodo(description, test)" type="text" class="form-control" id="input-description"
+        placeholder="Description">
+        <label for="input-test">Test</label>
+        <input [(ngModel)]="test" (keyup.enter)="addTodo(description, test)" type="text" class="form-control" id="input-test"
+        placeholder="test">
+    </div>
+    <button type="button" class="btn btn-default btn-block" (click)="addTodo(description, test)">Add todo</button>
+
+  </div>
+
+  <hr>
+  <div flex fxLayout="row">
+
+      <div fxFlex="100%">
 
           <table class="table">
               <thead>
@@ -27,6 +43,10 @@
                           {{ todo.description }}
                       </td>
                       <td *ngIf="editMode != todo.todoId">
+                        {{ todo.test }}
+                        </td>
+
+                      <td *ngIf="editMode != todo.todoId">
                           <button class="btn btn-primary btn-sm" (click)="deleteTodo(todo)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
                       </td>
                       <td *ngIf="editMode != todo.todoId">
@@ -36,10 +56,10 @@
                           <input [(ngModel)]="todo.description" type="text" class="form-control" id="edit-description">
                       </td>
                       <td *ngIf="editMode == todo.todoId">
-                          <button class="btn btn-primary btn-sm" (click)="editTodo(todo); editMode = null">Save</button>
+                          <button (click)="editTodo(todo); editMode = null">Save</button>
                       </td>
                       <td *ngIf="editMode == todo.todoId">
-                          <button class="btn btn-default btn-sm" (click)="editMode = null">Cancel</button>
+                          <button (click)="editMode = null">Cancel</button>
                       </td>
                   </tr>
               </tbody>
@@ -53,21 +73,5 @@
           <hr />
 
       </div>
-
-      <div class="col-md-6">
-
-          <div class="form-group">
-              <label for="input-description">Description</label>
-              <input [(ngModel)]="description" (keyup.enter)="addTodo(description, test)" type="text" class="form-control" id="input-description"
-              placeholder="Description">
-              <label for="input-test">Test</label>
-              <input [(ngModel)]="test" (keyup.enter)="addTodo(description, test)" type="text" class="form-control" id="input-test"
-              placeholder="test">
-          </div>
-          <button type="button" class="btn btn-default btn-block" (click)="addTodo(description, test)">Add todo</button>
-
-      </div>
-
   </div>
-
 </div>

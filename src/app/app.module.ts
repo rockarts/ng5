@@ -6,7 +6,7 @@ import {DataService} from './data.service';
 import { IndexedDBService } from './indexedDB.service'; // IndexedDBService class.
 import { Entity, Todo } from './models/entity'; // Entity classes.
 
-
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -67,6 +67,7 @@ export function initIndexedDB(indexedDB: IndexedDB): Function {
   ],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
     AppRoutingModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }), 
     FormsModule,
