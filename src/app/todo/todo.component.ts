@@ -14,10 +14,9 @@ import { Entity, Todo } from '../models/entity';
 export class TodoComponent {
 
     description: string;
-    test: string;
+    
     constructor(public indexedDB: IndexedDBService, public entity: Entity) {
         this.description = "";
-        this.test = "";
         this.getTodo();
     }
 
@@ -35,12 +34,12 @@ export class TodoComponent {
     }
 
     // Adds a todo.
-    addTodo(description: string, test: string) {
+    addTodo(description: string) {
         // Creates a new record.
         var record: Todo = new Todo();
         record.todoId = this.entity.createKey();
         record.description = description;
-        record.test = test;
+        
         // Adds the record.
         this.indexedDB.addRecordAsync("TodoStore", record).forEach(
             // Next.
@@ -52,7 +51,7 @@ export class TodoComponent {
 
         // Clears description.
         this.description = "";
-        this.test = "";
+        
     }
 
     // Deletes a todo.
